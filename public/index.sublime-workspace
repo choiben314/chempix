@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"client_",
+				"client_credentials_manager"
+			],
+			[
+				"fx",
+				"fx"
+			],
+			[
+				"data",
+				"dataFromCSV"
+			],
+			[
+				"l",
+				"lng"
+			],
+			[
+				"padding",
+				"padding-bottom\tproperty"
+			],
+			[
+				"pass",
+				"passCorrectElement"
+			],
+			[
+				"gameID",
+				"gameIDInputElement"
+			],
+			[
+				"game",
+				"gameIDInputElement"
+			],
+			[
+				"createElem",
+				"createOptionsElement"
+			],
+			[
+				"add",
+				"addMember"
+			],
+			[
+				"numTeam",
+				"numTeamSelectElement"
+			],
+			[
+				"teamPoin",
+				"teamPointsListElement"
+			],
+			[
+				"rounds",
+				"roundsRemaining_value"
+			],
+			[
+				"getClas",
+				"getElementsByClassName"
+			],
+			[
+				"corec",
+				"correctButtonElement"
+			],
+			[
+				"clue",
+				"clueGiverElement"
+			],
+			[
+				"guess",
+				"guesserElement"
+			],
+			[
+				"spec",
+				"spectatorElement"
+			],
+			[
+				"getEle",
+				"getElementById"
+			],
+			[
+				"waiter",
+				"waitingPlayerListElement"
+			],
+			[
+				"join",
+				"joinTeamButton"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"usernmae",
+				"usernameInputElement"
+			],
+			[
+				"getWord",
+				"getWordsClass"
+			],
+			[
+				"getWords",
+				"getWordsInput1Element"
+			],
+			[
+				"input",
+				"input1"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"vec",
+				"vecSizes"
+			],
+			[
+				"zer",
+				"zeroCount0"
+			],
+			[
+				"moreActivi",
+				"moreActivity2"
+			],
+			[
+				"moreAc",
+				"moreActivity1"
+			],
+			[
+				"moreAct",
+				"moreActivity2"
+			],
+			[
+				"ac",
+				"activity1"
+			],
+			[
+				"get",
+				"getMinimum"
+			],
+			[
+				"print",
+				"printTree"
+			],
+			[
+				"Binar",
+				"BinaryTree"
+			],
+			[
+				"ran",
+				"randomStack"
+			],
+			[
+				"random",
+				"randomLinkedList"
+			],
+			[
+				"curr",
+				"curr1"
+			],
+			[
+				"isPalin",
+				"isPalindromePermutationBit"
+			],
+			[
+				"e",
+				"eName"
+			],
+			[
+				"b",
+				"bTextName"
+			],
+			[
+				"aText",
+				"aTextName"
+			],
+			[
+				"m",
+				"myName"
+			],
+			[
+				"mas",
+				"masterChosen"
+			],
+			[
+				"canvas",
+				"canvas_width"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"backgroun",
+				"background-color\tproperty"
+			],
+			[
+				"templ",
+				"templateWaitScreen"
+			],
+			[
+				"template",
+				"templateWaitScreen"
+			],
+			[
+				"player",
+				"playerName"
+			],
+			[
+				"show",
+				"showPlayScreen"
+			],
+			[
+				"g",
+				"gameID"
+			],
+			[
+				"gam",
+				"gameID"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 302.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/choib/Projects/chempix/public/index.html",
+		"/C/Users/choib/Projects/chempix/src/Table.js",
+		"/C/Users/choib/Projects/chempix/src/index.js",
+		"/C/Users/choib/Projects/chempix/src/index.css",
+		"/C/Users/choib/Projects/chempix/src/Form.js",
+		"/C/Users/choib/Projects/chempix/src/Camera.js",
+		"/C/Users/choib/Projects/chempix/src/App.css",
+		"/C/Users/choib/AppData/Local/Programs/Python/Python37/Lib/site-packages/spotipy/client.py",
+		"/C/Users/choib/Projects/music/rec.py",
+		"/C/Users/choib/Downloads/smartbin_master_new.py",
+		"/C/Users/choib/Downloads/smartbin_master.py",
+		"/C/Users/choib/Projects/foobar/c1.py",
+		"/C/Users/choib/Projects/foobar/c2.py",
+		"/C/Users/choib/Projects/foobar/c3.py",
+		"/C/Users/choib/Projects/c1.py",
+		"/C/Users/choib/Projects/deepvoxels/benchmarking.py",
+		"/C/Users/choib/Projects/deepvoxels/projection.py",
+		"/C/Users/choib/Projects/deepvoxels/data_util.py",
+		"/C/Users/choib/Projects/deepvoxels/dataio.py",
+		"/C/Users/choib/Projects/deepvoxels/.git/COMMIT_EDITMSG",
+		"/C/Users/choib/Desktop/render.py",
+		"/C/Users/choib/Projects/deepvoxels/benchmarking_for_ben.py",
+		"/C/Users/choib/Projects/deepvoxels/run_deepvoxels.py",
+		"/C/Users/choib/Projects/gdd/src/gdd_master.py",
+		"/C/Users/choib/Projects/deepvoxels/deep_voxels.py",
+		"/C/Users/choib/Projects/deepvoxels/.git/MERGE_MSG",
+		"/C/Users/choib/Projects/deepvoxels/custom_layers.py",
+		"/C/Users/choib/Projects/deepvoxels/.gitignore",
+		"/C/Users/choib/Projects/deepvoxels/gitignore",
+		"/C/Users/choib/Projects/gdd/.gitignore",
+		"/C/Users/choib/Projects/gdd/src/gdd_cluster.ipynb",
+		"/C/Users/choib/Projects/deepvoxels/losses.py",
+		"/C/Users/choib/Projects/gdd/.git/MERGE_MSG",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw7_benchoi_danjwu/firebase/functions/index.js",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw7_benchoi_danjwu/firebase/index.js",
+		"/C/Users/choib/Projects/akshaya/requirements.txt",
+		"/C/Users/choib/Projects/akshaya/Procfile",
+		"/C/Users/choib/Projects/akshaya/app.py",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw6_danjwu_benchoi/app/src/main/java/edu/stanford/danjwu/cs193a_hw6_danjwu_benchoi/TitleScreenActivity.kt",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/settings.gradle",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/build.gradle",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/app/src/main/java/edu/stanford/danjwu/cs193a_hw6_danjwu_benchoi/SnakeCanvas.kt",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/gradle.properties",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/gradle/wrapper/gradle-wrapper.jar",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/gradle/wrapper/gradle-wrapper.properties",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/app/build.gradle",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/app/src/main/res/layout-land/activity_snake_game.xml",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/app/src/main/java/edu/stanford/danjwu/cs193a_hw6_danjwu_benchoi/TitleScreenActivity.kt",
+		"/C/Users/choib/Downloads/cs193a_hw6_danjwu_benchoi/app/src/main/java/edu/stanford/danjwu/cs193a_hw6_danjwu_benchoi/SnakeGameActivity.kt",
+		"/C/Users/choib/Downloads/fb.c",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/BlankFragment.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/SwipeUsersActivity.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/SignUpActivity.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/ProfileView.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/FriendrMainActivity.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/UserView.kt",
+		"/C/Users/choib/Projects/live-well/exports_config.js",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/java/edu/stanford/cs193a/cs193a_hw4_benchoi/ViewUsersActivity.kt",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/AndroidManifest.xml",
+		"/C/Users/choib/AndroidStudioProjects/cs193a_hw4_benchoi1/app/src/main/res/layout/activity_friendr_main.xml",
+		"/C/Users/choib/Projects/live-well/index.html",
+		"/C/Users/choib/AppData/Roaming/npm/node_modules/csv-to-firestore/bin/index.js",
+		"/C/Users/choib/AppData/Roaming/npm/node_modules/csv-to-firestore/bin/lib/updateFirebase.js",
+		"/C/Users/choib/Projects/live-well/firebasemap.js",
+		"/C/Users/choib/Projects/live-well/import.js",
+		"/C/Users/choib/Downloads/livewell-treehacks-firebase-adminsdk-5nxt4-9f65b39c16.json",
+		"/C/Users/choib/Downloads/mygeodata/DJI_Wells_2000_NIMA.csv",
+		"/C/Users/choib/Projects/live-well/package-lock.json",
+		"/C/Users/choib/Projects/live-well/server.js",
+		"/C/Users/choib/Projects/climate-classifier/src/processBorder.py",
+		"/C/Users/choib/Projects/salad-bowl/public/styles.css",
+		"/C/Users/choib/Projects/salad-bowl/firebase.json",
+		"/C/Users/choib/Projects/salad-bowl/.firebaserc",
+		"/C/Users/choib/Projects/salad-bowl/public/favicon/browserconfig.xml",
+		"/C/Users/choib/Projects/salad-bowl/.gitignore",
+		"/C/Users/choib/Projects/salad-bowl/public/scripts/main.js",
+		"/C/Users/choib/Downloads/a3bfb79508c1a18de4f00b1e06ef74e9.ico/manifest.json",
+		"/C/Users/choib/Projects/salad-bowl/functions/index.js",
+		"/C/Users/choib/Projects/salad-bowl/database.rules.json",
+		"/C/Users/choib/Projects/salad-bowl/public/index.html",
+		"/C/Users/choib/Projects/friendlychat-web/web-start/public/firebase-messaging-sw.js",
+		"/C/Users/choib/Projects/friendlychat-web/web-start/functions/index.js",
+		"/C/Users/choib/Projects/salad-bowl/index.html",
+		"/C/Users/choib/Projects/friendlychat-web/web-start/public/index.html",
+		"/C/Users/choib/Projects/friendlychat-web/web-start/public/scripts/main.js",
+		"/C/Users/choib/Projects/friendlychat-web/web-start/public/manifest.json",
+		"/C/Users/choib/Projects/friendlychat-web/web/storage.rules",
+		"/C/Users/choib/Projects/friendlychat-web/web/database-rules.json",
+		"/C/Users/choib/Projects/friendlychat-web/web/firebase.json",
+		"/C/Users/choib/Projects/friendlychat-web/web/public/scripts/main.js",
+		"/C/Users/choib/Projects/friendlychat-web/web/functions/index.js",
+		"/C/Users/choib/Projects/friendlychat-web/web-statr",
+		"/C/Users/choib/Projects/index.html",
+		"/C/Users/choib/Projects/contact/test.js",
+		"/C/Users/choib/Projects/contact/public/js/app.js",
+		"/C/Users/choib/Projects/contact/server.js",
+		"/C/Users/choib/Projects/contact/index.html",
+		"/C/Users/choib/Projects/contact/package.json",
+		"/C/Users/choib/Downloads/app.js",
+		"/C/Users/choib/Projects/interview/bitManipulation.py",
+		"/C/Users/choib/Projects/interview/arraysAndStrings.py",
+		"/C/Users/choib/Documents/Classes/CS109/pset6/logistic.py",
+		"/C/Users/choib/Documents/Classes/CS109/pset6/naive.py",
+		"/C/Users/choib/Projects/interview/treesAndGraphs.py",
+		"/C/Users/choib/Projects/interview/linkedLists.py",
+		"/C/Users/choib/Documents/Classes/CS109/pset5/pset5code.py",
+		"/C/Users/choib/Documents/Classes/CS109/dither.py",
+		"/C/Users/choib/Projects/interview/stacksAndQueues.py",
+		"/C/users/choib/Documents/Classes/CS109/pset4/titanic.py",
+		"/C/Users/choib/Projects/climate-classifier/src/hkhybrid.m",
+		"/C/users/choib/Documents/Classes/CS109/pset4/biometric.py",
+		"/C/Users/choib/Projects/wow.py",
+		"/C/Users/choib/Documents/Classes/CS106B/Assignments/build-20Questions-Desktop_Qt_5_11_2_MinGW_32bit-Debug/test.txt",
+		"/C/Users/choib/Projects/climate-classifier/data/TEMP_hawaii__1-2006_12-2100.csv",
+		"/C/Users/choib/Documents/Classes/CS109/pset2/bats.py",
+		"/C/Users/choib/Documents/Classes/CS109/fifteen.py",
+		"/C/users/choib/Documents/Classes/CS109/biometric.py",
+		"/C/users/choib/Documents/Classes/CS109/dither.py",
+		"/C/users/choib/projects/imaginary-continent/src/ml_proto/svm_gauss/proto.m",
+		"/C/users/choib/projects/wow.py",
+		"/C/Users/choib/Downloads/km.tex",
+		"/C/users/choib/projects/climate-classifier/src/hkhybrid",
+		"/C/users/choib/projects/climate-classifier/src/hk-hybrid.m",
+		"/C/users/choib/projects/misc/simpleRandom.py",
+		"/C/users/choib/projects/imaginary-continent/src/data_proc/nearest_coast.py",
+		"/C/Users/choib/Documents/Classes/CS109/pset2/localization.py",
+		"/C/Users/choib/Documents/Classes/CS109/pset2/loadCsvExample.py",
+		"/C/users/choib/Documents/CS109/fifteen.py"
+	],
+	"find":
+	{
+		"height": 153.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 153.0
+	},
+	"input":
+	{
+		"height": 153.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 302.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

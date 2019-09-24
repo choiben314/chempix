@@ -1,0 +1,93 @@
+body {
+    font: normal 14px "Oswald", Verdana, Arial, sans-serif;
+    text-align:center;
+    width: 100%;
+}
+
+span {
+	font-size:3em; 
+	font-family:'Verdana'; 
+	vertical-align:middle
+}
+
+a.button-image{
+	display:inline-block;
+	padding:0.7em 1.7em 0.3em 0em;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.2em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:"Oswald", Verdana, Arial, sans-serif;
+	font-weight:400;
+	color:#FFFFFF;
+	background-color:#3369ff;
+	box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+	text-align:center;
+	position:relative;
+}
+a.button-image:active{
+	box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+@media all and (max-width:0em){
+	a.button-image{
+		display:block;
+		margin:0.4em auto;
+	}
+	a.button-simple{
+		display:block;
+		margin:0.4em auto;
+	}
+	#homeButton{
+		display:block;
+		margin:0 auto;
+	}
+}
+
+a.button-simple{
+	display:inline-block;
+	padding:0.7em 1.7em 0.7em 1.7em;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.2em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:"Oswald", Verdana, Arial, sans-serif;
+	font-weight:400;
+	color:#FFFFFF;
+	background-color:#2979FF;
+	box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+	text-align:center;
+	position:relative;
+}
+a.button-simple:active{
+	box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+
+.container{
+    width: 400px;
+    overflow:hidden;
+    display:block;
+    height: 420px;
+}
+#player{
+    margin-bottom: -370px;
+}
+
+#homeButtonDiv{
+	text-align: center;
+	width: 100%;
+}
+#homeButton{
+	position:absolute;
+	display: inline-block;
+	bottom:0;
+	padding:0.7em 1.7em 0.7em 1.7em;
+	border-radius:0.2em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:"Oswald", Verdana, Arial, sans-serif;
+	font-weight:400;
+	color:#FFFFFF;
+	background-color:#2979FF;
+	box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+	text-align:center;
+}

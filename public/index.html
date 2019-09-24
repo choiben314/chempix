@@ -1,0 +1,96 @@
+<!doctype html>
+
+<head>
+  <title>ChemPix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> -->
+  <link rel="stylesheet" href="index.css">
+<!--   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"> -->
+<!--   <link rel="manifest" href="/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff"> -->
+</head>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+<script src="/__/firebase/6.6.1/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBjNPwL1CXSLjpuNYnB6DOBixdmRJD2r6Q",
+    authDomain: "chempix.firebaseapp.com",
+    databaseURL: "https://chempix.firebaseio.com",
+    projectId: "chempix",
+    storageBucket: "",
+    messagingSenderId: "45678778098",
+    appId: "1:45678778098:web:55815cbbfcf19fb157e26b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<body>
+  <div id="splash" style="margin-top: 100px">
+    <h1 id="banner">Welcome to ChemPix</h1>
+    <br/><br/>
+    <a id="login" class="button-image" style="background-color:#2979FF; display: none">
+     <span><img src="stanford-logo.png" alt="Stanford Logo" width="30" height="45"></span>
+     Login with Stanford
+    </a>
+    <a id="sign-out" class="button-simple" style="width: 200px; margin-bottom: 4px; display: none">Sign Out</a>
+    <h2 id="loading">Loading...</h2>
+    <br></br>
+    <br></br>
+    <div id="menu" style="display: none">
+      <div>
+        <a id="take-photos" class="button-simple" style="width: 200px; margin-bottom: 4px">Take Photos</a>
+      </div>
+      <div>
+        <a id="rewards" class="button-simple" style="width: 200px; margin-bottom: 4px">Rewards</a>
+      </div>
+      <div>
+        <a id="stats" class="button-simple" style="width: 200px; margin-bottom: 4px">Stats</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="photo" style="display: none">
+    <h1>Draw the molecule below.</h1>
+    <img src="caffeine-sample.png" width="171" height="166">
+    <div id="container" class="container" style="margin-bottom: 5px; margin-top: 5px">
+      <video id="player" width=360 height=360 autoplay></video>
+      <canvas id="canvas" width=360 height=360 style="display: none"></canvas>
+    </div>
+    <a id="capture" class="button-simple">Capture</a>
+    <a href="submit" id="submit" class="button-simple" style="display: none; background-color:#00c853">Submit</a>
+    <a id="switch" class="button-simple">Switch Camera</a>
+<!--     <a id="switch" class="button-simple" style="margin-top: 5px; padding: 0.5em 1em 0.5em 1em"><span><img src="switch-camera.png" width="32" height="24" style="display:block"></span></a> -->
+<!--     <div style="margin-top: 5px">
+      <a id="home" class="button-simple">Home</a>
+    </div> -->
+  </div>
+
+  <div id="reward" style="display: none; margin-top: 200px">
+    <h1>You've entered 0 tickets.</h1>
+    <h1>20 images left until next entry.</h1>
+  </div>
+
+  <div id="stat" style="display: none; margin-top: 200px">
+    <h1>17804/100000 images collected!</h1>
+    <h2>12 days, 4 hours, and 3 minutes remaining.</h2>
+  </div>
+
+  <div style="margin-top: 5px; width: 100%">
+    <a id="home" class="button-simple" style='display: none'>Home</a>
+  </div>
+</body>
+<script src="scripts/main.js"></script>
+</html>
