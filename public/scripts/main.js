@@ -27,7 +27,7 @@ function login() {
   });
 }
 
-var valid_user = false;
+var username = null
 
 const loginButton = document.getElementById('login');
 const signOutButton = document.getElementById('sign-out');
@@ -48,12 +48,14 @@ signOutButton.addEventListener('click', event => {
 });
 
 takePhotosButton.addEventListener('click', event => {
+  pageToken()
   document.getElementById('splash').style.display = 'none'
   document.getElementById('photo').style.display = 'inline-block'
   document.getElementById('home').style.display = 'inline-block'
 });
 
 rewardsButton.addEventListener('click', event => {
+  console.log('hello')
   document.getElementById('splash').style.display = 'none'
   document.getElementById('reward').style.display = 'inline-block'
   document.getElementById('home').style.display = 'inline-block'
@@ -68,7 +70,7 @@ statsButton.addEventListener('click', event => {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.email.endsWith("stanford.edu")) {
-      valid_user = true;
+      username = user.email.substr(0, user.email.indexOf('@'))
       signOutButton.style.display = 'inline-block';
       loginButton.style.display = 'none';
       menu.style.display = 'inline-block';
@@ -76,11 +78,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     } else {
       alert("Error: Must use stanford.edu email.");
-      firebase.auth().signOut();
+      // firebase.auth().signOut();
+      firebase.auth().currentUser.delete();
     }
   } else {
     // No user is signed in.
-    valid_user = false;
     signOutButton.style.display = 'none';
     loginButton.style.display = 'inline-block';
     menu.style.display = 'none';
@@ -91,15 +93,19 @@ firebase.auth().onAuthStateChanged(function(user) {
 const container = document.getElementById('container');
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+const molecule = document.getElementById('molecule');
+const inputFile = document.getElementById('input');
+const imgPreview = document.getElementById('preview')
 const captureButton = document.getElementById('capture');
 const submitButton = document.getElementById('submit');
-const switchButton = document.getElementById('switch');
 const homeButton = document.getElementById('home');
 
 // container.width = window.innerWidth * 0.85;
-player.width = window.innerWidth * 0.85;
-player.height = window.innerHeight * 0.6;
+// player.width = window.innerWidth * 0.85;
+// player.height = window.innerHeight * 0.6;
+
+imgPreview.width = window.innerWidth * 0.75;
+imgPreview.height = imgPreview.width;
 
 var cam = 0; // 0 for selfie, 1 for rear
 
@@ -115,63 +121,99 @@ const user_constraints = {
   }}
 };
 
-player.addEventListener( "loadedmetadata", function (e) {
-    // Ratio of the video's intrisic dimensions
-    var videoRatio = this.videoWidth / this.videoHeight;
-    console.log(this.videoWidth);
-    console.log(this.videoHeight);
-    // The width and height of the video element
-    var width = this.offsetWidth, height = this.offsetHeight;
-    // The ratio of the element's width to its height
-    var elementRatio = width / height;
-    // If the video element is short and wide
-    if(elementRatio > videoRatio) width = height * videoRatio;
-    // It must be tall and thin, or exactly equal to the original ratio
-    else height = width / videoRatio;
-    canvas.width = width;
-    canvas.height = height;
-}, false );
+// player.addEventListener( "loadedmetadata", function (e) {
+//     // Ratio of the video's intrinsic dimensions
+//     var videoRatio = this.videoWidth / this.videoHeight;
+//     // console.log(this.videoWidth);
+//     // console.log(this.videoHeight);
+//     // The width and height of the video element
+//     var width = this.offsetWidth, height = this.offsetHeight;
+//     // The ratio of the element's width to its height
+//     var elementRatio = width / height;
+//     // If the video element is short and wide
+//     if(elementRatio > videoRatio) width = height * videoRatio;
+//     // It must be tall and thin, or exactly equal to the original ratio
+//     else height = width / videoRatio;
+//     // canvas.width = width;
+//     // canvas.height = height;
+//     // console.log(canvas.width);
+//     // console.log(canvas.height);
+// }, false );
 
-captureButton.addEventListener('click', () => {
-  if (captureButton.innerHTML == "Take again") {
-    canvas.style.display = 'none'
-    player.style.display = 'inline-block'
+var storageRef = firebase.storage().ref()
+var file = null
+
+inputFile.onchange = function() {
+  if (inputFile.files.length == 0) {
     submitButton.style.display = 'none'
     captureButton.innerHTML = "Capture"
-    switchButton.style.display = 'inline-block'
+    imgPreview.style.display = 'none'
   } else {
-    // Draw the video frame to the canvas.
-    context.drawImage(player, 0, 0, canvas.width, canvas.height);
-    canvas.style.display = 'inline-block'
-    player.style.display = 'none'
     submitButton.style.display = 'inline-block'
-    captureButton.innerHTML = "Take again"
-    switchButton.style.display = 'none'
+    captureButton.innerHTML = "Take Again"
+    imgPreview.style.display = 'inline-block'
   }
-  
-});
+  previewFile()
+};
 
-var stream = null;
+function previewFile() {
+  //var preview = document.getElementById('preview')
+  file    = inputFile.files[0];
+  var reader  = new FileReader();
 
-switchButton.addEventListener('click', event => {
-  player.pause()
-  player.srcObject = null
+  reader.addEventListener("load", function () {
+    imgPreview.src = reader.result;
+  }, false);
 
-  if (cam == 0) {
-    constraints = env_constraints
-    cam = 1
-  } else {
-    constraints = user_constraints
-    cam = 0
+  if (file) {
+    reader.readAsDataURL(file);
   }
-  // Attach the video stream to the video element and autoplay.
-  navigator.mediaDevices.getUserMedia(constraints)
-    .then((_stream) => {
-      stream = _stream
-      player.srcObject = stream;
-      player.play();
+}
+async function pageToken(){
+  // Create a reference under which you want to list
+  var listRef = storageRef.child('gen');
+  // Fetch the first page of 100.
+  var firstItem = await listRef.list({ maxResults: 100}).then(result => {
+    displayImage(result.items[Math.floor(Math.random() * Math.min(100, result.items.length))])    
+  });
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function security_break(del) {
+  await sleep(20000);
+  storageRef.child('gen/' + del).delete().then(function() {
+    console.log("deleted")
+  })
+}
+
+function displayImage(imageRef) {
+  imageRef.getDownloadURL().then(url => {
+    molecule.src = url
+    security_break(imageRef.name)
+  });
+  submitButton.addEventListener('click', event => {
+    var metadata = {
+      customMetadata: {
+        'smile': imageRef.name.split('.')[0]
+      }
+    }
+    const uploadTask = storageRef.child('up/' + username + '__' + imageRef.name.split('.')[0]).put(file, metadata); //create a child directory called images, and place the file inside this directory
+    uploadTask.on('state_changed', (snapshot) => {
+    // Observe state change events such as progress, pause, and resume
+    }, (error) => {
+      // Handle unsuccessful uploads
+      console.log(error);
+    }, () => {
+      submitButton.style.display = 'none'
+      captureButton.innerHTML = "Capture"
+      imgPreview.style.display = 'none'
+      pageToken()
     });
-});
+  });
+}
 
 homeButton.addEventListener('click', event => {
   document.getElementById('photo').style.display = 'none'
@@ -181,9 +223,9 @@ homeButton.addEventListener('click', event => {
   homeButton.style.display = 'none'
 });
 
-// Attach the video stream to the video element and autoplay.
-navigator.mediaDevices.getUserMedia(user_constraints)
-  .then((_stream) => {
-    stream = _stream
-    player.srcObject = stream;
-});
+// // Attach the video stream to the video element and autoplay.
+// navigator.mediaDevices.getUserMedia(user_constraints)
+//   .then((_stream) => {
+//     stream = _stream
+//     player.srcObject = stream;
+// });

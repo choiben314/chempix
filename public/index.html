@@ -6,19 +6,19 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> -->
   <link rel="stylesheet" href="index.css">
-<!--   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"> -->
-<!--   <link rel="manifest" href="/favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 
 <script src="/__/firebase/6.6.1/firebase-auth.js"></script>
+<script src="/__/firebase/6.6.1/firebase-storage.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -30,7 +30,7 @@
     authDomain: "chempix.firebaseapp.com",
     databaseURL: "https://chempix.firebaseio.com",
     projectId: "chempix",
-    storageBucket: "",
+    storageBucket: "chempix.appspot.com",
     messagingSenderId: "45678778098",
     appId: "1:45678778098:web:55815cbbfcf19fb157e26b"
   };
@@ -38,9 +38,9 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <body>
-  <div id="splash" style="margin-top: 100px">
+  <div id="splash" style="margin-top: 100px; display: inline-block">
     <h1 id="banner">Welcome to ChemPix</h1>
-    <br/><br/>
+    <br></br>
     <a id="login" class="button-image" style="background-color:#2979FF; display: none">
      <span><img src="stanford-logo.png" alt="Stanford Logo" width="30" height="45"></span>
      Login with Stanford
@@ -64,17 +64,19 @@
 
   <div id="photo" style="display: none">
     <h1>Draw the molecule below.</h1>
-    <img src="caffeine-sample.png" width="171" height="166">
-    <div id="container" class="container" style="margin-bottom: 5px; margin-top: 5px">
-      <video id="player" width=360 height=360 autoplay></video>
-      <canvas id="canvas" width=360 height=360 style="display: none"></canvas>
-    </div>
-    <a id="capture" class="button-simple">Capture</a>
-    <a href="submit" id="submit" class="button-simple" style="display: none; background-color:#00c853">Submit</a>
-    <a id="switch" class="button-simple">Switch Camera</a>
-<!--     <a id="switch" class="button-simple" style="margin-top: 5px; padding: 0.5em 1em 0.5em 1em"><span><img src="switch-camera.png" width="32" height="24" style="display:block"></span></a> -->
-<!--     <div style="margin-top: 5px">
-      <a id="home" class="button-simple">Home</a>
+    <img id="molecule" src="caffeine-sample.png" width="171" height="166">
+    <br></br>
+    <label for="input">
+      <a id="capture" class="button-simple">Capture</a>
+    </label>
+    <a id="submit" class="button-simple" style="display: none;
+    background-color:#00c853">Submit</a>
+    <br></br>
+    <input id="input" type="file" accept="image/*" capture style="display: none">
+    <img id="preview" src="" alt="Loading image..." style="display: none">
+<!--     <a id="rewards" class="button-simple" style="display:none; width: 200px; margin-bottom: 4px">Rewards</a> -->
+<!--     <div>
+      <a id="rewards" class="button-simple" style="width: 200px; margin-bottom: 4px">Rewards</a>
     </div> -->
   </div>
 
@@ -89,8 +91,60 @@
   </div>
 
   <div style="margin-top: 5px; width: 100%">
-    <a id="home" class="button-simple" style='display: none'>Home</a>
+    <a id="home" class="button-simple" style="display: none">Home</a>
   </div>
 </body>
 <script src="scripts/main.js"></script>
 </html>
+
+
+<!--     <script src="webcam.js"></script>
+
+    <div id="my_camera" style="width:320px; height:240px;"></div>
+    <div id="my_result"></div> -->
+
+<!--     <video id="player" width=0 height=0 style="visibility: hidden" autoplay></video>
+    <canvas id="canvas" width=360 height=360 style="align: middle"></canvas>
+    <br></br>
+    <script language="JavaScript">
+      function onLoadEvent() {
+      function loop(){
+       var video = document.getElementById('player');
+       var diffHeight = 0
+       var diffWidth = 0
+       if (video.videoWidth < video.videoHeight) {
+        diffHeight = (video.videoHeight - canvas.height) / 2
+       } else {
+        diffWidth = (video.videoWidth - canvas.width) / 2
+       }
+       ctx.drawImage(video, diffWidth, diffHeight, video.videoWidth, video.videoHeight, 0, 0, 360,360);
+       setTimeout(loop, 1000 / 30);
+       }
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      loop();
+       }
+       onLoadEvent();
+    </script> -->
+
+<!--     <script language="JavaScript">
+      Webcam.set({
+        width: 512,
+        height: 512,
+        crop_width: 512,
+        crop_height: 512,
+      });
+      Webcam.attach( '#my_camera' );
+      
+      function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+          document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+        } );
+      }
+    </script>
+ -->
+<!--     <a href="javascript:void(take_snapshot())">Take Snapshot</a> -->
+<!--     <div id="container" class="container" style="margin-bottom: 5px; margin-top: 5px">
+      <video id="player" width=360 height=360 autoplay></video>
+      <canvas id="canvas" width=360 height=360 style="display: none"></canvas>
+    </div> -->
