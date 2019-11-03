@@ -1,8 +1,8 @@
 <!doctype html>
 
 <head>
-  <title>ChemPix</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChemPix Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> -->
   <link rel="stylesheet" href="index.css">
@@ -19,6 +19,7 @@
 
 <script src="/__/firebase/6.6.1/firebase-auth.js"></script>
 <script src="/__/firebase/6.6.1/firebase-storage.js"></script>
+<script src="/__/firebase/6.6.1/firebase-firestore.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -39,63 +40,155 @@
 </script>
 <body>
   <div id="splash" style="margin-top: 100px; display: inline-block">
-    <h1 id="banner">Welcome to ChemPix</h1>
-    <br></br>
+    <h1 id="banner">Welcome to ChemPix Data</h1>
+    <img src="benzene-150.png" width="75px" height="75px">
+    <br><br><br>
     <a id="login" class="button-image" style="background-color:#2979FF; display: none">
      <span><img src="stanford-logo.png" alt="Stanford Logo" width="30" height="45"></span>
      Login with Stanford
     </a>
-    <a id="sign-out" class="button-simple" style="width: 200px; margin-bottom: 4px; display: none">Sign Out</a>
     <h2 id="loading">Loading...</h2>
-    <br></br>
-    <br></br>
     <div id="menu" style="display: none">
       <div>
-        <a id="take-photos" class="button-simple" style="width: 200px; margin-bottom: 4px">Take Photos</a>
+        <a id="take-photos" class="button-simple" style="width: 200px; margin-bottom: 4px">Draw Molecules</a>
       </div>
       <div>
-        <a id="rewards" class="button-simple" style="width: 200px; margin-bottom: 4px">Rewards</a>
+        <a id="rules" class="button-simple" style="width: 200px; margin-bottom: 4px">Instructions</a>
       </div>
       <div>
-        <a id="stats" class="button-simple" style="width: 200px; margin-bottom: 4px">Stats</a>
+        <a id="rewards" class="button-simple" style="width: 200px; margin-bottom: 4px">My Stats</a>
       </div>
+      <div>
+        <a id="stats" class="button-simple" style="width: 200px; margin-bottom: 4px">Cumulative Stats</a>
+      </div>
+      <br></br>
+      <a id="sign-out" class="button-simple" style="width: 200px; margin-bottom: 4px; display: none">Sign Out</a>
     </div>
   </div>
 
   <div id="photo" style="display: none">
     <h1>Draw the molecule below.</h1>
-    <img id="molecule" src="caffeine-sample.png" width="171" height="166">
+    <img id="molecule" src="caffeine-sample.png" width="171" height="166" style="display: none">
+    <div>
+    <h2 id="loading-molecule">Loading molecule...</h2>
+    </div>
+    <input id="input" type="file" accept="image/*" capture style="display: none">
+    <div>
+    <a id="rotate" class="button-simple" style="display: none">Rotate 90°</a>
+    </div>
+    <img id="preview" src="" alt="Loading image..." style="display: none">
     <br></br>
     <label for="input">
-      <a id="capture" class="button-simple">Capture</a>
+      <a id="capture" class="button-simple">Take Photo</a>
     </label>
     <a id="submit" class="button-simple" style="display: none;
     background-color:#00c853">Submit</a>
     <br></br>
+  </div>
+
+  <div id="photo" style="display: none">
+    <h1>Draw the molecule asdf.</h1>
+    <img id="molecule" src="caffeine-sample.png" width="171" height="166" style="display: none">
+    <div>
+    <h2 id="loading-molecule">Loading molecule...</h2>
+    </div>
     <input id="input" type="file" accept="image/*" capture style="display: none">
     <img id="preview" src="" alt="Loading image..." style="display: none">
-<!--     <a id="rewards" class="button-simple" style="display:none; width: 200px; margin-bottom: 4px">Rewards</a> -->
-<!--     <div>
-      <a id="rewards" class="button-simple" style="width: 200px; margin-bottom: 4px">Rewards</a>
-    </div> -->
+    <br>
+    <label for="input">
+      <a id="capture" class="button-simple">Take Photo</a>
+    </label>
+    <a id="submit" class="button-simple" style="display: none;
+    background-color:#00c853">Submit</a>
   </div>
 
-  <div id="reward" style="display: none; margin-top: 200px">
-    <h1>You've entered 0 tickets.</h1>
-    <h1>20 images left until next entry.</h1>
+  <div id="validate" style="display: none">
+    <h1>Is this molecule drawn correctly?</h1>
+    <div>
+      <img id="gt-molecule" src="caffeine-sample.png" width="171" height="166" style="display: none">
+    </div>
+    <div>
+      <img id="v-molecule" src="caffeine-sample.png" width="171" height="166" style="display: none">
+    </div>
+    <div>
+      <h2 id="loading-molecules">Loading molecules...</h2>
+    </div>
+    <br></br>
+    <a id="bad" class="button-simple" style="display: none;
+    background-color:#d9443f">No</a>
+    <a id="good" class="button-simple" style="display: none;
+    background-color:#00c853">Yes</a>
+    <br></br>
   </div>
 
-  <div id="stat" style="display: none; margin-top: 200px">
-    <h1>17804/100000 images collected!</h1>
-    <h2>12 days, 4 hours, and 3 minutes remaining.</h2>
+  <div id="rule" style="display: none">
+    <h1>Instructions</h1>
+    <div>
+      <!-- left aligned, space between lines, bullet point -->
+    <p style='margin-left: 20px; margin-right: 20px; text-align: left'>> Draw each molecule presented on screen in the "Draw Molecules" section and press "Submit" to submit your photo to the database or "Take Again" to retake the picture. 
+<br><br>> Your photo will be cropped to the center square.
+<br><br>> Submitted molecules will be checked for correctness. Drawing molecules incorrectly will disqualify you from the competition.
+<br><br>> To help validate submissions, you may also occasionally be asked to rate the similarity of a molecule submission to the original image. Press "Yes" or "No" to rate these accordingly.
+<br><br>> Try to minimize messy backgrounds and bad lighting.
+<br><br>> All Stanford students are invited to take part in the competition!
+<br><br>> Contact <strong>hweir@stanford.edu</strong> if you have questions.</p>
+<br>
+    </div>
+  </div>
+
+  <div id="reward" style="display: none">
+    <h1>Your Raffle Info</h1>
+    <br></br>
+    <h3 id="entries"># of raffle tickets: Loading...</h3>
+    <h3 id="images-left">Progress towards next raffle ticket: Loading...</h3>
+    <h3 id="images-left-bonus">Progress towards next bonus raffle ticket: Loading...</h3>
+    <br>
+    <h2>Rules</h2>
+    <div>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: left'>> 5 molecules = 1 raffle ticket. Every 25 molecules you get a bonus ticket!
+    <br><br>> Raffle tickets enter you into a raffle to win prizes including VR headset, TV, headphones, tent, amazon vouchers and more!
+    <br><br>> App users will collectively unlock these prizes as they draw molecules: Check the “Stats” page to see what prizes have been unlocked.
+    <br><br>> The person who draws the most each week will win a $10 Amazon voucher.
+    <br><br>> Raffle winners will be announced on the last day of Fall Quarter.</p>
+     </div>
+    <br>
+
+  </div>
+
+  <div id="stat" style="display: none">
+    <h1 id='totals'>Loading...</h1>
+    <br>
+    <div style="display: flex; justify-content: center;">
+      <ul id="progress">
+        <li style="text-align:left"><div class="node grey"></div><p>100k ⁠— Electric Scooter</p></li>
+        <li style="text-align:left"><div class="divider grey"></div></li>
+        <li style="text-align:left"><div class="node grey"></div><p>50k ⁠— VR Headset</p></li>
+        <li style="text-align:left"><div class="divider grey"></div></li>
+        <li style="text-align:left"><div class="node grey"></div><p>20k ⁠— TV</p></li>
+        <li style="text-align:left"><div class="divider grey"></div></li>
+        <li style="text-align:left"><div class="node grey"></div><p>10k ⁠— Beats Headphones</p></li>
+        <li style="text-align:left"><div class="divider grey"></div></li>
+        <li style="text-align:left"><div class="node grey"></div><p>5k ⁠— Tent</p></li>
+        <li style="text-align:left"><div class="divider grey"></div></li>
+        <li style="text-align:left"><div class="node grey"></div><p>1k ⁠— Kindle Paperwhite</p></li>
+      </ul>
+    </div>
+    <br>
+    <h2 id="total-images-left">Loading...</h2>
+    <h3 id='countdown'>Loading...</h3>
+    <!-- december 13 5pm pst-->
+    <br>
+    <br>
   </div>
 
   <div style="margin-top: 5px; width: 100%">
     <a id="home" class="button-simple" style="display: none">Home</a>
   </div>
 </body>
+<script src="scripts/ImageTools.js"></script>
 <script src="scripts/main.js"></script>
 </html>
+
 
 
 <!--     <script src="webcam.js"></script>

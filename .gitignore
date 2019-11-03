@@ -63,3 +63,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+chempix-9163782a8d89.json
+smiles.txt
+smiles/
+smiles_200K_halo.txt
+smiles_200k/
+smiles_test
